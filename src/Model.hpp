@@ -163,6 +163,11 @@ public:
       assert(_ratecat_rates.size() ==  _num_ratecats);
       corax_compute_gamma_cats(_alpha, _num_ratecats, _ratecat_rates.data(), _gamma_mode);
     }
+    if (ratehet_mode() == CORAX_UTIL_MIXTYPE_GAMMA_OPT_WEIGHTS)
+    {
+      assert(_ratecat_rates.size() ==  _num_ratecats);
+      corax_compute_gamma_cats_opt_weights(_alpha, _num_ratecats, _ratecat_rates.data(), _ratecat_weights.data());
+    }
   };
   void pinv(double value) { _pinv = value; };
   void brlen_scaler(double value) { _brlen_scaler = value; };
